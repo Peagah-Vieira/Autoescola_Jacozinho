@@ -3,6 +3,9 @@
 use App\Filament\Auth\Login;
 use App\Filament\Pages\MyProfile;
 use App\Filament\Resources\PaymentResource;
+use App\Filament\Widgets\LatestPayments;
+use App\Filament\Widgets\PaymentsChart;
+use App\Filament\Widgets\SocialNetworksWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Http\Middleware\MirrorConfigToSubpackages;
@@ -146,7 +149,9 @@ return [
         'path' => app_path('Filament/Widgets'),
         'register' => [
             Widgets\AccountWidget::class,
-            Widgets\FilamentInfoWidget::class,
+            SocialNetworksWidget::class,
+            PaymentsChart::class,
+            LatestPayments::class,
         ],
     ],
 
