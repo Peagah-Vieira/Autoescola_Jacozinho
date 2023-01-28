@@ -2,6 +2,7 @@
 
 use App\Filament\Auth\Login;
 use App\Filament\Pages\MyProfile;
+use App\Filament\Resources\PaymentResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Http\Middleware\MirrorConfigToSubpackages;
@@ -107,8 +108,8 @@ return [
         'namespace' => 'App\\Filament\\Pages',
         'path' => app_path('Filament/Pages'),
         'register' => [
-            MyProfile::class,
             Pages\Dashboard::class,
+            MyProfile::class,
         ],
     ],
 
@@ -126,7 +127,7 @@ return [
         'namespace' => 'App\\Filament\\Resources',
         'path' => app_path('Filament/Resources'),
         'register' => [
-            //
+            PaymentResource::class,
         ],
     ],
 

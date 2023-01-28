@@ -12,9 +12,9 @@ class PaymentStatsOverview extends BaseWidget
     protected function getCards(): array
     {
         return [
-            Card::make('Total Payments', Payment::all()->count()),
-            Card::make('Payments Amount', Payment::all()->sum('amount')),
-            Card::make('Payments Amount 7 days', Payment::all()->where('created_at', '>=', Carbon::now()->subDays(7))->sum('amount')),
+            Card::make('Quantidade de Pagamentos', Payment::all()->count()),
+            Card::make('Valor dos Pagamentos', Payment::all()->sum('amount')),
+            Card::make('Ultimos Pagamentos (7 dias)', Payment::all()->where('created_at', '>=', Carbon::now()->subDays(7))->sum('amount')),
         ];
     }
 }

@@ -29,7 +29,7 @@ class FilamentServiceProvider extends ServiceProvider
         Filament::serving(function () {
             Filament::registerUserMenuItems([
                 UserMenuItem::make()
-                    ->label('Profile')
+                    ->label('Perfil')
                     ->url(MyProfile::getUrl())
                     ->icon('heroicon-s-document-text'),
             ]);

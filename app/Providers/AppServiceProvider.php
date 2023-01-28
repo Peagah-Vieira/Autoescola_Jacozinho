@@ -27,13 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Filament::serving(function () {
-            Filament::registerNavigationGroups([
-                NavigationGroup::make()
-                    ->label('Resources')
-            ]);
-            
             Filament::registerUserMenuItems([
-                'logout' => UserMenuItem::make()->label('Logout'),
+                'logout' => UserMenuItem::make()->label('Deslogar'),
             ]);
         });
     }
