@@ -15,6 +15,8 @@ class MyProfile extends BaseProfile
     
     protected static ?int $navigationSort = 4;
 
+    protected static ?string $slug = 'meu-perfil';
+
     protected static string $view = "filament-breezy::filament.pages.my-profile";
 
     public $user;

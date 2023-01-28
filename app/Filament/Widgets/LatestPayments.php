@@ -17,9 +17,11 @@ class LatestPayments extends BaseWidget
 {
     protected int | string | array $columnSpan = 'full';
 
+    protected static ?string $heading = 'Ultimos Pagamentos';
+
     protected function getTableQuery(): Builder
     {
-        return Payment::query()->latest();
+        return Payment::latest();
     }
 
     protected function getTableColumns(): array
@@ -75,6 +77,11 @@ class LatestPayments extends BaseWidget
                         ->required(),
                 ])
         ];
+    }
+
+    protected function getDefaultTableRecordsPerPageSelectOption(): int
+    {
+        return 5;
     }
 
     protected function isTablePaginationEnabled(): bool
