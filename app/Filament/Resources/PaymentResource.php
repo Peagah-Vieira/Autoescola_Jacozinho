@@ -9,7 +9,6 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use App\Filament\Resources\PaymentResource\Pages;
-use App\Filament\Resources\PaymentResource\RelationManagers\UserRelationManager;
 use App\Filament\Resources\PaymentResource\Widgets\PaymentStatsOverview;
 use HusamTariq\FilamentTimePicker\Forms\Components\TimePickerField;
 use Illuminate\Database\Eloquent\Model;
@@ -22,18 +21,18 @@ class PaymentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cash';
 
-    protected static ?string $navigationLabel = 'Payments';
+    protected static ?string $navigationLabel = 'Pagamentos';
 
-    protected static ?string $navigationGroup = 'Manager Resources';
+    protected static ?string $navigationGroup = 'Recursos';
 
     public static function getGlobalSearchResultTitle(Model $record): string
     {
-        return $record->username;
+        return $record->fullname;
     }
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['username', 'amount'];
+        return ['fullname', 'amount'];
     }
 
     public static function form(Form $form): Form
@@ -42,19 +41,23 @@ class PaymentResource extends Resource
             ->schema([
                 Forms\Components\Card::make()
                     ->schema([
-                        Forms\Components\TextInput::make('username')
-                            ->placeholder('John Doe')
+                        Forms\Components\TextInput::make('fullname')
+                            ->label('Nome Completo')
+                            ->placeholder('John Doe Maia')
                             ->required(),
                         Forms\Components\TextInput::make('amount')
+                            ->label('Valor')
                             ->mask(fn (Forms\Components\TextInput\Mask $mask) => $mask
                                 ->money(prefix: 'R$', isSigned: false)
                             )
                             ->required(),
                         TimePickerField::make('payment_time')
+                            ->label('Hora de Pagamento')
                             ->okLabel('Confirm')
                             ->cancelLabel('Cancel')
                             ->required(),
                         Forms\Components\DatePicker::make('payment_date')
+                            ->label('Data de Pagamento')
                             ->placeholder('Jan 5, 2023')
                             ->maxDate(now())
                             ->required(),
@@ -66,18 +69,22 @@ class PaymentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('username')
+                Tables\Columns\TextColumn::make('fullname')
+                    ->label('Nome Completo')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\BadgeColumn::make('amount')
+                    ->label('Valor')
                     ->prefix('$')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment_date')
+                    ->label('Hora de Pagamento')
                     ->searchable()
                     ->sortable()
                     ->date(),
                 Tables\Columns\TextColumn::make('payment_time')
+                    ->label('Data de Pagamento')
                     ->time()
                     ->searchable()
                     ->sortable()

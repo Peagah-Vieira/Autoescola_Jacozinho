@@ -19,9 +19,9 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
-    protected static ?string $navigationLabel = 'Users';
+    protected static ?string $navigationLabel = 'Usuários';
 
-    protected static ?string $navigationGroup = 'Admin Resources';
+    protected static ?string $navigationGroup = 'Recursos';
 
     public static function getGlobalSearchResultTitle(Model $record): string
     {

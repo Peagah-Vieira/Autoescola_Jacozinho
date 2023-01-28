@@ -19,7 +19,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Test User',
+            'name' => 'Usuario Teste',
             'email' => 'test@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
