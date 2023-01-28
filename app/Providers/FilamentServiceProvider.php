@@ -2,15 +2,15 @@
 
 namespace App\Providers;
 
+use App\Filament\Pages\MyProfile;
 use Filament\Facades\Filament;
 use Filament\Navigation\UserMenuItem;
 use Illuminate\Support\ServiceProvider;
-use Filament\Navigation\NavigationGroup;
 
-class AppServiceProvider extends ServiceProvider
+class FilamentServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
@@ -20,20 +20,18 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
         Filament::serving(function () {
-            Filament::registerNavigationGroups([
-                NavigationGroup::make()
-                    ->label('Resources')
-            ]);
-            
             Filament::registerUserMenuItems([
-                'logout' => UserMenuItem::make()->label('Logout'),
+                UserMenuItem::make()
+                    ->label('Profile')
+                    ->url(MyProfile::getUrl())
+                    ->icon('heroicon-s-document-text'),
             ]);
         });
     }
