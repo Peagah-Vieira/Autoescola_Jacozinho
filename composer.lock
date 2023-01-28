@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "808bfaa7bfcfc37ea7944261ba67b632",
+    "content-hash": "dc32951038d48aa197b547ff390fc3d7",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1600,6 +1600,52 @@
                 }
             ],
             "time": "2022-10-26T14:07:24+00:00"
+        },
+        {
+            "name": "husam-tariq/filament-timepicker",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/husam-tariq/filament-timepicker.git",
+                "reference": "5e1d8bab65ac44b79a97ec4d3f88c1fc8d4076a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/husam-tariq/filament-timepicker/zipball/5e1d8bab65ac44b79a97ec4d3f88c1fc8d4076a8",
+                "reference": "5e1d8bab65ac44b79a97ec4d3f88c1fc8d4076a8",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "*",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "HusamTariq\\FilamentTimePicker\\FilamentTimePickerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HusamTariq\\FilamentTimePicker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "husam-tariq",
+                    "email": "hu22am1@gmail.com"
+                }
+            ],
+            "description": "Filament Time Picker Field",
+            "homepage": "https://github.com/husam-tariq/filament-timepicker",
+            "support": {
+                "issues": "https://github.com/husam-tariq/filament-timepicker/issues",
+                "source": "https://github.com/husam-tariq/filament-timepicker/tree/v1.0.1"
+            },
+            "time": "2022-12-18T23:20:45+00:00"
         },
         {
             "name": "jeffgreco13/filament-breezy",
