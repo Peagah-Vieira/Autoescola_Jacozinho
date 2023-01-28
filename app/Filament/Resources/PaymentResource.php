@@ -10,6 +10,7 @@ use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use App\Filament\Resources\PaymentResource\Pages;
 use App\Filament\Resources\PaymentResource\RelationManagers\UserRelationManager;
+use App\Filament\Resources\PaymentResource\Widgets\PaymentStatsOverview;
 use HusamTariq\FilamentTimePicker\Forms\Components\TimePickerField;
 use Illuminate\Database\Eloquent\Model;
 
@@ -97,6 +98,13 @@ class PaymentResource extends Resource
     {
         return [
             //
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            PaymentStatsOverview::class,
         ];
     }
 
